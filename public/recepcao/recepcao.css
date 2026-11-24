@@ -1,0 +1,29 @@
+.rc { display: grid; grid-template-columns: minmax(380px, 5fr) 7fr; gap: 20px; padding: 20px clamp(14px, 3vw, 28px) 32px; align-items: start; }
+.rc-form-panel { position: sticky; top: 80px; }
+.rc-form { display: grid; gap: 14px; }
+.rc-form .input { min-height: 46px; font-size: 16px; }
+.rc-two { display: grid; grid-template-columns: 1fr 1.3fr; gap: 12px; }
+.rc-keys { font-size: 12.5px; margin-left: auto; display: inline-flex; gap: 4px; align-items: center; }
+.rc-actions { padding-top: 6px; border-top: 1px solid var(--linha-2); margin-top: 4px; padding-top: 14px; }
+.spacer { flex: 1; }
+.linklike { border: 0; background: none; padding: 0; color: var(--petroleo-700); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; font: inherit; font-weight: 600; }
+.rc-suggest { justify-self: start; color: var(--laranja-700); }
+.rc-outbox { background: var(--alerta-50); color: var(--alerta); padding: 10px 12px; border-radius: var(--r-sm); font-size: 13.5px; font-weight: 500; }
+.rc-last { margin: 0 18px 18px; padding: 14px 16px; border-radius: var(--r); background: var(--petroleo-50); display: grid; gap: 8px; }
+.rc-last .rc-last-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.rc-last strong { font-size: 16px; }
+.rc-search { position: relative; width: min(380px, 100%); }
+.rc-search .icon { position: absolute; left: 11px; top: 12px; color: var(--tinta-3); }
+.rc-search .input { padding-left: 36px; }
+.rc-list { max-height: calc(100vh - 290px); overflow: auto; }
+.rc-row { display: grid; grid-template-columns: 56px 1fr auto auto; gap: 14px; align-items: center; padding: 11px 18px; border-bottom: 1px solid var(--linha-2); cursor: pointer; }
+.rc-row:hover { background: var(--petroleo-50); }
+.rc-row.flash { animation: flash 1.6s ease-out; }
+@keyframes flash { from { background: var(--laranja-50); } }
+.rc-seq { font-family: var(--font-num); font-weight: 600; color: var(--tinta-3); font-size: 15px; }
+.rc-row .name { font-weight: 600; }
+.rc-row .sub { font-size: 13px; color: var(--tinta-3); }
+.rc-jobs { border-top: 1px solid var(--linha); padding: 12px 18px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; font-size: 13.5px; }
+.rc-jobs:empty { display: none; }
+@media (max-width: 980px) { .rc { grid-template-columns: 1fr; } .rc-form-panel { position: static; } .rc-list { max-height: none; } }
+@media (max-width: 560px) { .rc-two { grid-template-columns: 1fr; } }

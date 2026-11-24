@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mills Seminovos — Credenciamento</title>
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="/shared/base.css">
+<style>
+  .home { min-height: 100vh; display: grid; grid-template-rows: auto 1fr; }
+  .home header { background: var(--petroleo); padding: 28px clamp(20px, 5vw, 56px); }
+  .home header img { width: 150px; }
+  .home main { padding: clamp(24px, 5vw, 56px); display: grid; align-content: start; gap: 28px; max-width: 1080px; }
+  .home h1 { font-size: clamp(26px, 3vw, 36px); max-width: 22ch; }
+  .areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); border-top: 1px solid var(--linha); }
+  .areas a { display: grid; gap: 6px; padding: 22px 20px 22px 0; text-decoration: none; color: var(--tinta); border-bottom: 1px solid var(--linha); }
+  .areas a strong { font-size: 18px; display: flex; align-items: center; gap: 10px; }
+  .areas a strong .dot { color: var(--laranja); }
+  .areas a span { color: var(--tinta-2); font-size: 14px; max-width: 30ch; }
+  .areas a:hover strong { color: var(--petroleo-700); }
+  #demo { background: #fff; border: 1px solid var(--linha); border-left: 4px solid var(--laranja); border-radius: 8px; padding: 18px 20px; display: grid; gap: 12px; }
+  #demo h2 { font-size: 17px; }
+  #demo .links { display: flex; gap: 10px; flex-wrap: wrap; }
+  #demo table { border-collapse: collapse; font-size: 14px; }
+  #demo td { padding: 3px 18px 3px 0; }
+</style>
+</head>
+<body>
+<div class="sem-servidor" style="position:fixed;inset:0;z-index:99999;background:#004042;color:#fff;font:18px/1.5 Segoe UI,Arial,sans-serif;padding:48px;overflow:auto"><div style="max-width:640px;margin:0 auto"><p style="font-size:28px;font-weight:700;margin:0 0 16px">Esta tela precisa do servidor do sistema</p><p style="margin:0 0 12px">Os arquivos .html não funcionam abertos com dois cliques: sem o servidor o navegador não carrega o visual nem as funções.</p><p style="margin:0 0 12px">Volte à pasta principal do sistema e abra o arquivo <b>ABRA-ME.html</b>. Ele mostra o passo a passo (são 3 passos).</p><p style="margin:0;opacity:.75">Com o servidor rodando, esta tela abre pelo navegador no endereço http://localhost:3100 (demonstração).</p></div></div>
+<div class="home">
+  <header><img src="/assets/brand/mills-seminovos-branco.png" alt="Mills Seminovos"></header>
+  <main>
+    <h1>Credenciamento e captação de leads</h1>
+    <section id="demo" hidden></section>
+    <nav class="areas" aria-label="Áreas do sistema">
+      <a href="/vendedor"><strong><span class="dot"></span>Vendedores</strong><span>Ler credenciais, captar e acompanhar seus leads.</span></a>
+      <a href="/recepcao"><strong><span class="dot"></span>Recepção</strong><span>Credenciar com apoio, buscar cadastros e reimprimir etiquetas.</span></a>
+      <a href="/admin"><strong><span class="dot"></span>Administração</strong><span>Painel da inauguração, equipe, impressoras e relatórios.</span></a>
+    </nav>
+    <p style="color:var(--tinta-3);font-size:13px">O totem é aberto pelo link de configuração gerado em Administração → Estações e impressoras.</p>
+  </main>
+</div>
+<script type="module" src="/shared/home.js"></script>
+</body>
+</html>

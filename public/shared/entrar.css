@@ -1,0 +1,28 @@
+.login { min-height: 100vh; display: grid; grid-template-columns: minmax(320px, 5fr) 7fr; }
+.login-brand {
+  background: var(--petroleo); color: #fff; padding: clamp(28px, 5vw, 64px); display: flex; flex-direction: column; justify-content: space-between; gap: 40px;
+  position: relative; overflow: hidden;
+}
+.login-brand::after { /* mastro com plataforma: referência às plataformas elevatórias */
+  content: ''; position: absolute; right: clamp(28px, 5vw, 64px); top: 18%; bottom: 0; width: 3px; background: rgba(255,255,255,.14);
+}
+.login-brand::before {
+  content: ''; position: absolute; right: calc(clamp(28px, 5vw, 64px) - 10px); top: calc(18% + 28px); width: 23px; height: 23px; background: var(--laranja); border-radius: 2px;
+}
+.login-logo { width: 190px; }
+.login-event { font-size: clamp(24px, 2.6vw, 34px); font-weight: 600; line-height: 1.15; max-width: 16ch; }
+.login-tag { margin-top: 12px; color: rgba(255,255,255,.72); max-width: 34ch; }
+.login-form-wrap { display: grid; place-items: center; padding: 32px 20px; }
+.login-form { width: min(380px, 100%); display: grid; gap: 18px; }
+.login-form h1 { font-size: 30px; font-weight: 700; }
+.login-form .err { color: var(--erro); min-height: 1.2em; font-weight: 500; }
+.login-help { font-size: 13px; color: var(--tinta-3); }
+@media (max-width: 760px) {
+  .login { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .login-brand { gap: 18px; padding: 24px 22px; }
+  .login-brand::before, .login-brand::after { display: none; }
+  .login-logo { width: 130px; }
+  .login-event { font-size: 21px; max-width: none; }
+  .login-tag { display: none; }
+  .login-form-wrap { place-items: start center; }
+}

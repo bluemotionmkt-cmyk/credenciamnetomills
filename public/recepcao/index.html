@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recepção — Mills Seminovos</title>
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="/shared/base.css">
+<link rel="stylesheet" href="/shared/staff.css">
+<link rel="stylesheet" href="/recepcao/recepcao.css">
+</head>
+<body>
+<div class="sem-servidor" style="position:fixed;inset:0;z-index:99999;background:#004042;color:#fff;font:18px/1.5 Segoe UI,Arial,sans-serif;padding:48px;overflow:auto"><div style="max-width:640px;margin:0 auto"><p style="font-size:28px;font-weight:700;margin:0 0 16px">Esta tela precisa do servidor do sistema</p><p style="margin:0 0 12px">Os arquivos .html não funcionam abertos com dois cliques: sem o servidor o navegador não carrega o visual nem as funções.</p><p style="margin:0 0 12px">Volte à pasta principal do sistema e abra o arquivo <b>ABRA-ME.html</b>. Ele mostra o passo a passo (são 3 passos).</p><p style="margin:0;opacity:.75">Com o servidor rodando, esta tela abre pelo navegador no endereço http://localhost:3100 (demonstração).</p></div></div>
+<header class="topbar">
+  <a class="brand" href="/recepcao"><img src="/assets/brand/mills-seminovos-branco.png" alt="Mills Seminovos"><span class="area">Recepção</span></a>
+  <span class="spacer"></span>
+  <label class="sr-only" for="station">Imprimir em</label>
+  <select class="btn-top" id="station" title="Onde as etiquetas desta tela serão impressas"></select>
+  <span class="live" id="printer-state"></span>
+  <span class="live" id="live"><span class="dot"></span>Ao vivo</span>
+  <span class="who" id="who"></span>
+  <a class="btn-top" id="to-admin" href="/admin" hidden>Administração</a>
+  <button class="btn-top" id="logout" type="button">Sair</button>
+</header>
+
+<main class="rc">
+  <section class="panel rc-form-panel" aria-labelledby="rc-form-title">
+    <div class="panel-head"><h2 id="rc-form-title">Novo credenciamento</h2><span class="muted rc-keys"><span class="kbd">Enter</span> avança&ensp;&ensp;<span class="kbd">Ctrl</span>+<span class="kbd">Enter</span> confirma</span></div>
+    <form class="panel-body rc-form" id="form" novalidate autocomplete="off">
+      <div class="field"><label for="f-name">Nome completo</label><input class="input" id="f-name" name="name" maxlength="120" autocapitalize="words" spellcheck="false"><span class="err" id="e-name"></span></div>
+      <div class="rc-two">
+        <div class="field"><label for="f-phone">Telefone / WhatsApp</label><input class="input" id="f-phone" name="phone" inputmode="tel" maxlength="16" placeholder="(00) 00000-0000"><span class="err" id="e-phone"></span></div>
+        <div class="field"><label for="f-email">E-mail</label><input class="input" id="f-email" name="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254"><span class="err" id="e-email"></span><button type="button" class="btn btn-sm btn-ghost rc-suggest" id="email-suggest" hidden></button></div>
+      </div>
+      <div class="field"><label for="f-company">Empresa <span class="muted" style="font-weight:400">opcional</span></label><input class="input" id="f-company" name="company" maxlength="120" spellcheck="false"></div>
+      <label class="check"><input type="checkbox" id="f-privacy"><span>Participante informado e de acordo com o <button type="button" class="linklike" id="open-privacy">aviso de privacidade</button>.</span></label>
+      <span class="err" id="e-privacy_ack"></span>
+      <label class="check"><input type="checkbox" id="f-marketing"><span id="marketing-text">Aceita receber ofertas.</span></label>
+      <div class="row rc-actions">
+        <label class="check"><input type="checkbox" id="f-print" checked><span>Imprimir etiqueta</span></label>
+        <span class="spacer grow"></span>
+        <button class="btn" type="reset" id="clear">Limpar</button>
+        <button class="btn btn-acao btn-lg" type="submit" id="submit">Credenciar</button>
+      </div>
+      <p class="rc-outbox" id="outbox" hidden></p>
+    </form>
+    <div class="rc-last" id="last" hidden></div>
+  </section>
+
+  <section class="panel rc-list-panel" aria-labelledby="rc-list-title">
+    <div class="panel-head">
+      <h2 id="rc-list-title">Participantes</h2>
+      <span class="muted" id="count"></span>
+      <span class="spacer grow"></span>
+      <div class="rc-search"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input class="input" id="search" placeholder="Buscar por nome, telefone, e-mail ou código" autocomplete="off"></div>
+    </div>
+    <div class="rc-list" id="list"></div>
+    <div class="rc-jobs" id="jobs"></div>
+  </section>
+</main>
+
+<script src="/shared/validation.js"></script>
+<script type="module" src="/recepcao/recepcao.js"></script>
+</body>
+</html>

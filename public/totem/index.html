@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Credenciamento — Mills Seminovos</title>
+<link rel="icon" href="/favicon.png">
+<link rel="manifest" href="/totem/manifest.webmanifest">
+<link rel="stylesheet" href="/shared/base.css">
+<link rel="stylesheet" href="/totem/totem.css">
+</head>
+<body class="totem">
+<div class="sem-servidor" style="position:fixed;inset:0;z-index:99999;background:#004042;color:#fff;font:18px/1.5 Segoe UI,Arial,sans-serif;padding:48px;overflow:auto"><div style="max-width:640px;margin:0 auto"><p style="font-size:28px;font-weight:700;margin:0 0 16px">Esta tela precisa do servidor do sistema</p><p style="margin:0 0 12px">Os arquivos .html não funcionam abertos com dois cliques: sem o servidor o navegador não carrega o visual nem as funções.</p><p style="margin:0 0 12px">Volte à pasta principal do sistema e abra o arquivo <b>ABRA-ME.html</b>. Ele mostra o passo a passo (são 3 passos).</p><p style="margin:0;opacity:.75">Com o servidor rodando, esta tela abre pelo navegador no endereço http://localhost:3100 (demonstração).</p></div></div>
+
+<!-- Tela inicial: vitrine da inauguração -->
+<section class="screen screen-welcome" id="welcome" aria-labelledby="w-title">
+  <div class="w-glow" aria-hidden="true"></div>
+  <header class="w-top">
+    <img class="w-logo" id="staff-hold" src="/assets/brand/mills-seminovos-branco.png" alt="Mills Seminovos" draggable="false">
+    <p class="w-event" id="w-event"></p>
+  </header>
+  <div class="w-main">
+    <p class="w-kicker" id="w-kicker">Inauguração</p>
+    <h1 class="w-title" id="w-title">Mega ofertas em seminovos</h1>
+    <div class="w-offer">
+      <p class="w-highlight" id="w-highlight"></p>
+      <ul class="w-perks" id="w-perks"></ul>
+    </div>
+    <div class="w-cta">
+      <p class="w-text" id="w-text"></p>
+      <button class="btn-totem btn-totem-acao" id="start" type="button">FAZER MEU CREDENCIAMENTO</button>
+    </div>
+    <div class="w-lift" aria-hidden="true">
+      <svg viewBox="0 0 400 800" class="lift">
+        <line x1="0" y1="786" x2="400" y2="786" class="lift-ground"/>
+        <g class="lift-scissor">
+          <g class="lift-arms">
+            <line x1="70" y1="280" x2="330" y2="385"/><line x1="330" y1="280" x2="70" y2="385"/>
+            <line x1="70" y1="385" x2="330" y2="490"/><line x1="330" y1="385" x2="70" y2="490"/>
+            <line x1="70" y1="490" x2="330" y2="595"/><line x1="330" y1="490" x2="70" y2="595"/>
+            <line x1="70" y1="595" x2="330" y2="700"/><line x1="330" y1="595" x2="70" y2="700"/>
+          </g>
+        </g>
+        <g class="lift-top">
+          <rect x="40" y="186" width="320" height="76" rx="6" class="lift-sign"/>
+          <text x="200" y="240" text-anchor="middle" class="lift-sign-text" id="lift-sign-text">OFERTAS</text>
+          <line x1="44" y1="176" x2="356" y2="176" class="lift-rail"/>
+          <line x1="44" y1="176" x2="44" y2="268" class="lift-rail"/>
+          <line x1="356" y1="176" x2="356" y2="268" class="lift-rail"/>
+          <rect x="26" y="262" width="348" height="20" rx="3" class="lift-deck"/>
+        </g>
+        <rect x="40" y="700" width="320" height="52" rx="8" class="lift-base"/>
+        <rect x="70" y="714" width="80" height="10" rx="3" class="lift-base-detail"/>
+        <circle cx="100" cy="760" r="25" class="lift-wheel"/><circle cx="300" cy="760" r="25" class="lift-wheel"/>
+        <circle cx="100" cy="760" r="8" class="lift-hub"/><circle cx="300" cy="760" r="8" class="lift-hub"/>
+      </svg>
+    </div>
+  </div>
+  <div class="w-ticker" aria-hidden="true"><div class="w-ticker-track" id="w-ticker"></div></div>
+  <footer class="w-foot">
+    <span id="w-help">Precisa de ajuda? Procure a recepção.</span>
+    <span class="w-status" id="w-status" aria-live="polite"></span>
+  </footer>
+</section>
+
+<!-- Formulário -->
+<section class="screen screen-form" id="form-screen" hidden aria-labelledby="f-title">
+  <header class="f-top">
+    <img src="/assets/brand/mills-seminovos.png" alt="Mills Seminovos" class="f-logo">
+    <button class="btn-totem-sm" id="cancel" type="button">Cancelar</button>
+  </header>
+  <div class="f-body">
+    <div class="mast mast-form" id="mast" aria-hidden="true">
+      <span class="mast-tick" data-k="name"></span>
+      <span class="mast-tick" data-k="phone"></span>
+      <span class="mast-tick" data-k="email"></span>
+      <span class="mast-platform" id="platform"></span>
+    </div>
+    <form class="f-form" id="form" novalidate autocomplete="off">
+      <h1 class="f-title" id="f-title">Seus dados</h1>
+      <div class="t-field" data-k="name">
+        <label for="f-name">Nome completo</label>
+        <input id="f-name" name="name" type="text" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="next" maxlength="120">
+        <p class="t-err" id="e-name"></p>
+      </div>
+      <div class="t-field" data-k="phone">
+        <label for="f-phone">Telefone / WhatsApp</label>
+        <input id="f-phone" name="phone" type="text" inputmode="tel" autocomplete="off" enterkeyhint="next" maxlength="16" placeholder="(00) 00000-0000">
+        <p class="t-err" id="e-phone"></p>
+      </div>
+      <div class="t-field" data-k="email">
+        <label for="f-email">E-mail</label>
+        <input id="f-email" name="email" type="text" inputmode="email" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="next" maxlength="254">
+        <p class="t-err" id="e-email"></p>
+        <button type="button" class="t-suggest" id="email-suggest" hidden></button>
+      </div>
+      <div class="t-field" data-k="company">
+        <label for="f-company">Empresa <span class="t-opt">opcional</span></label>
+        <input id="f-company" name="company" type="text" autocomplete="off" spellcheck="false" enterkeyhint="done" maxlength="120">
+      </div>
+      <div class="t-consent">
+        <label class="t-check"><input type="checkbox" id="f-privacy"><span>Li e concordo com o <button type="button" class="t-link" id="open-privacy">aviso de privacidade</button>.</span></label>
+        <p class="t-err" id="e-privacy_ack"></p>
+        <label class="t-check t-check-soft"><input type="checkbox" id="f-marketing"><span id="marketing-text"></span></label>
+      </div>
+      <p class="t-banner" id="form-banner" hidden></p>
+      <button class="btn-totem btn-totem-acao" id="submit" type="submit">Confirmar credenciamento</button>
+    </form>
+  </div>
+  <div class="kb" id="keyboard" hidden></div>
+</section>
+
+<!-- Resultado -->
+<section class="screen screen-done" id="done" hidden aria-live="polite">
+  <div class="d-wrap">
+    <div class="d-mark" id="d-mark" aria-hidden="true"></div>
+    <h1 class="d-title" id="d-title"></h1>
+    <p class="d-text" id="d-text"></p>
+    <div class="d-print" id="d-print"></div>
+    <p class="d-number" id="d-number"></p>
+    <button class="btn-totem" id="finish" type="button">Concluir</button>
+  </div>
+  <div class="d-timer" aria-hidden="true"><span id="d-timer-bar"></span></div>
+  <div class="mast mast-done" aria-hidden="true"><span class="mast-platform"></span></div>
+</section>
+
+<!-- Totem não vinculado -->
+<section class="screen screen-setup" id="setup" hidden>
+  <div class="d-wrap">
+    <img src="/assets/brand/mills-seminovos-branco.png" alt="Mills Seminovos" style="width:180px">
+    <h1 class="d-title" id="setup-title">Totem não vinculado</h1>
+    <p class="d-text" id="setup-text">No painel administrativo, abra Estações e impressoras e use o link do totem neste equipamento.</p>
+  </div>
+</section>
+
+<div class="busy" id="busy" hidden><div class="busy-box"><span class="busy-spin"></span><span>Registrando seu credenciamento…</span></div></div>
+
+<script src="/shared/validation.js"></script>
+<script type="module" src="/totem/totem.js"></script>
+</body>
+</html>

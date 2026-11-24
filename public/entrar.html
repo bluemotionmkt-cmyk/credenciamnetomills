@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entrar — Mills Seminovos</title>
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="/shared/base.css">
+<link rel="stylesheet" href="/shared/entrar.css">
+</head>
+<body>
+<div class="sem-servidor" style="position:fixed;inset:0;z-index:99999;background:#004042;color:#fff;font:18px/1.5 Segoe UI,Arial,sans-serif;padding:48px;overflow:auto"><div style="max-width:640px;margin:0 auto"><p style="font-size:28px;font-weight:700;margin:0 0 16px">Esta tela precisa do servidor do sistema</p><p style="margin:0 0 12px">Os arquivos .html não funcionam abertos com dois cliques: sem o servidor o navegador não carrega o visual nem as funções.</p><p style="margin:0 0 12px">Volte à pasta principal do sistema e abra o arquivo <b>ABRA-ME.html</b>. Ele mostra o passo a passo (são 3 passos).</p><p style="margin:0;opacity:.75">Com o servidor rodando, esta tela abre pelo navegador no endereço http://localhost:3100 (demonstração).</p></div></div>
+<main class="login">
+  <section class="login-brand">
+    <img src="/assets/brand/mills-seminovos-branco.png" alt="Mills Seminovos" class="login-logo">
+    <div class="login-brand-text">
+      <p class="login-event" id="event-name">Credenciamento e captação de leads</p>
+      <p class="login-tag">Acesso da equipe: recepção, vendedores e administração.</p>
+    </div>
+  </section>
+  <section class="login-form-wrap">
+    <form class="login-form" id="form" novalidate>
+      <h1>Entrar</h1>
+      <div class="field">
+        <label for="username">Usuário</label>
+        <input class="input" id="username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+      </div>
+      <div class="field">
+        <label for="password">Senha</label>
+        <input class="input" id="password" name="password" type="password" autocomplete="current-password" required>
+      </div>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn btn-primary btn-lg" id="submit" type="submit">Entrar</button>
+      <p class="login-help">Esqueceu a senha? Peça ao administrador para gerar uma senha temporária.</p>
+    </form>
+  </section>
+</main>
+<script type="module" src="/shared/entrar.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "mills-seminovos-credenciamento",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Credenciamento, identificação e captação de leads — Mills Seminovos",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --no-warnings server/index.js",
+    "demo": "node --no-warnings scripts/demo.js",
+    "setup": "node --no-warnings scripts/setup.js",
+    "seed-demo": "node --no-warnings scripts/seed-demo.js",
+    "reset-password": "node --no-warnings scripts/reset-password.js",
+    "cert": "node --no-warnings scripts/cert.js",
+    "agent": "node print-agent/agent.js",
+    "test": "node --no-warnings scripts/test-api.js",
+    "demo-servidor": "node --no-warnings server/index.js --demo"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "bcryptjs": "^3.0.3",
+    "exceljs": "^4.4.0",
+    "express": "^5.3.0",
+    "fontkit": "^2.0.4",
+    "pdfkit": "^0.20.2",
+    "qrcode": "^1.5.4",
+    "selfsigned": "^2.4.1"
+  }
+}
